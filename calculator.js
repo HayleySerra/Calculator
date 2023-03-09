@@ -36,7 +36,7 @@ keys.addEventListener('click', e => {
               previousKeyType = null;
               calculator.dataset.previousKey = 'number';
             } else {
-              display.textContent = displayedNum + keyContent
+              display.textContent = displayedNum + keyContent;
             }
           }
 
@@ -54,10 +54,12 @@ keys.addEventListener('click', e => {
         }
 
         if (action === 'decimal') {
-          calculator.dataset.previousKey = 'decimal';
           if(!displayedNum.includes('.')){
             display.textContent = displayedNum + '.';
+          }else if(previousKeyType === 'operator'){
+            display.textContent = '0.'
           }
+          calculator.dataset.previousKey = 'decimal';
           }
           
           if (action === 'clear') {
